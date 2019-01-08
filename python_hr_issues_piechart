@@ -1,0 +1,26 @@
+#main file
+import pygal
+
+
+piechart = pygal.Pie()
+
+piechart.add('Sexual Harassment', 2)
+piechart.add('Physical Conflict', 3)
+piechart.add('Late to work', 4)
+piechart.add('Extended Breaks', 6)
+piechart.add('Late on projects', 8)
+
+piechart.render()
+
+
+#grabbing the information above from a text side file in a different class
+file = open('hr_issues.txt', 'r')
+
+#determining the biggest human resources write up
+#issues to the smallest via pie chart
+for line in file.read().splitlines():
+    if line:
+        label, value = line.split(' ')
+        piechart2.add(label, int(value))
+
+file.close()
